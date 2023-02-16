@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import Blog from './components/Blog';
+import Post from './components/Post';
 import About from './components/About';
 import Contact from './components/Contact';
+import Error404 from './components/Error404';
 import Styled from 'styled-components';
 
 const App = () => {
@@ -15,8 +17,10 @@ const App = () => {
         <Header />
         <Main>
           <Routes>
+            <Route path="*" element={<Error404 />} />
             <Route path='/' element={<Home />} />
             <Route path='/blog' element={<Blog />} />
+            <Route path='/post/:id' element={< Post />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
           </Routes>
