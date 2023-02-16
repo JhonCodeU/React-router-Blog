@@ -1,19 +1,22 @@
 import React from 'react'
+import posts from '../data/posts';
+import { NavLink } from 'react-router-dom';
 
 const Blog = () => {
   return (
-    <div>
+    <>
       <h2>Blog</h2>
       <p>Here are my blog posts:</p>
       <ul>
-        <li>
-          <a href="/blog/first-post">First Post</a>
-        </li>
-        <li>
-          <a href="/blog/second-post">Second Post</a>
-        </li>
+        {posts.map(post => (
+          <li key={post.id}>
+            <NavLink to={`/post/${post.id}`}>
+              {post.title}
+            </NavLink>
+          </li>
+        ))}
       </ul>
-    </div>
+    </>
   );
 }
 
